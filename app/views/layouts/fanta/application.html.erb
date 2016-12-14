@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="robots" content="noindex,nofollow,noarchive" />
+<title>FormDsign::フォーム項目設計</title>
+<%= stylesheet_link_tag    "fanta/application", media: "all" %>
+<%= javascript_include_tag "fanta/application" %>
+<%= csrf_meta_tags %>
+<%= yield :inline_css %>
+<%= yield :inline_js %>
+</head>
+
+<body>
+  <script>
+    jQuery(function($){
+
+      var prefix = '<%#= Subdomain::Mng.env_path == "mng" ? "/mng" : "" %>';
+
+      var path = location.pathname;
+      var _path = prefix ? path.replace(prefix, '') : path;
+
+      var content = _path.split("/")[1];
+
+      var a = content ? "a[href^='" + prefix + "/" + content + "']" : "a[href='" + prefix + "']";
+
+      $('#global-menu').find(a).addClass('active');
+
+      $('.dropdown').dropdown();
+
+      $('.attached.button').sidebar('setting', 'transition', 'overlay').on('click', function(){
+        $('.left.sidebar').sidebar('toggle');
+      });
+
+    });
+  </script>
+  <style>
+    #main{
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    #message {
+      padding-top: 60px;
+      height: 120px;
+    }
+    label abbr {
+      color: #a94442 !important;
+      font-weight: bold;
+    }
+    .help-inline {
+      color: #a94442;
+    }
+
+    .fixed.button{
+      top: 60px;
+    }
+
+    .main .container{
+      width: 80%;
+      margin: 0 auto;
+    }
+
+    .ui.form .error.message{
+      display: block !important;
+    }
+
+    .ui.checkbox label{
+      cursor: pointer;
+    }
+
+  </style>
+
+  <div class="ui fixed inverted main menu">
+    <div class="container">
+      <div class="title item">
+        <%= link_to "fanta", '/' %>
+      </div>
+      <div class="right menu">
+        <div class="ui dropdown item">
+          メニュー
+          <i class="dropdown icon"></i>
+          <div class="menu">
+            <%#= link_to("ログアウト", destroy_user_session_path, class: 'item', method: :delete, data: { confirm: 'ログアウトしてよろしいですか？' }) %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui left vertical inverted sidebar menu">
+
+    <div class="item">
+      <%= link_to raw('<i class="large home inverted icon"></i>HOME'), '/' %>
+    </div>
+
+
+    <div class="item">
+      <div class="ui small inverted header"><i class="tag icon"></i>タグ管理</div>
+      <div class="menu">
+        <%#= link_to raw('一覧'), tags_path, {class: 'item'} %>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="ui black big launch right attached fixed  button">
+    <i class="content icon"></i>
+  </div>
+
+  <div class="ui centered grid column" id="main">
+    <div class="ui sixteen wide column">
+      <div id="container">
+        <div id="message">
+          <% flash.each do |type, message| -%>
+          <div class="ui <%= fanta_get_message_type(type) %> message">
+            <strong><%= message %></strong>
+          </div>
+          <% end %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-58535961-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>
