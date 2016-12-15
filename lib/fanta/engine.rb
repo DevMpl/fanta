@@ -4,6 +4,9 @@ require "simple_form"
 require "semantic-ui-sass"
 require "ckeditor"
 require "active_decorator"
+require "jquery-rails"
+require "jquery-ui-rails"
+require "cocoon"
 require "pry"
 require "pry-rails"
 require "pry-nav"
@@ -23,6 +26,10 @@ module Fanta
 		
 		config.assets.compress = false
 		config.assets.debug = true
+		
+    initializer "sprite.assets.precompile" do |app|
+      app.config.assets.precompile << %w( cocoon )
+    end
 		
   end
 end

@@ -25,6 +25,9 @@ Gem::Specification.new do |s|
 	s.add_dependency "semantic-ui-sass"
   s.add_dependency "ckeditor"
 	s.add_dependency "active_decorator"
+	s.add_dependency "jquery-rails"
+  s.add_dependency "jquery-ui-rails", "5.0.5"
+	s.add_dependency "cocoon"
 
 	s.add_dependency "pry"
 	s.add_dependency "pry-rails"
