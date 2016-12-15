@@ -1,0 +1,49 @@
+<h1 class="ui header"><i class="tag icon"></i><div class="content">項目設計</div></h1>
+<div class="ui breadcrumb">
+  <%= link_to raw('<i class="home icon"></i>'), fanta_root_path, class: 'section' %>
+  <i class="right chevron icon divider"></i>
+  <div class="section">項目設計一覧</div>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<%= render :partial => 'sub_menu' %>
+
+<% if @projects.present?  %>
+
+  <table class="ui celled padded table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>項目名</th>
+				<th>設計モデル</th>
+				<th>設計</th>
+        <th>編集</th>
+				<th>削除</th>
+      </tr>
+    </thead>
+    <tbody>
+		    <% @projects.each do |project| %>
+		      <tr>
+		        <td><%= project.id %></td>
+						<td>
+							<%= project.name %>
+						</td>
+		        <td><b><%= fanta_project_model_items[project.model] %></b></td>
+						
+						<td><%= link_to raw('<i class="setting icon large link"></i>'), setting_project_form_design_path(project.model) %></td>
+						
+		        <td><%= link_to raw('<i class="green large edit icon link icon"></i>'), edit_project_path(project) %></td>
+						<td>
+							<%= link_to raw('<i class="red large remove icon link icon"></i>'), project_path((project)), method: :delete, data: { confirm: t('message.destroy_confirm') } %>
+						</td>
+		      </tr>
+		    <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+<div class="ui message info">
+  登録されている項目がありません
+</div>
+<% end %>

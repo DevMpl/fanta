@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  type: 
+  form_type: MyString
+  slug: MyString
+  content: MyString
+  status: MyString
+  sequence: 1
+  free: MyText
+
+two:
+  name: MyString
+  type: 
+  form_type: MyString
+  slug: MyString
+  content: MyString
+  status: MyString
+  sequence: 1
+  free: MyText

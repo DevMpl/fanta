@@ -1,0 +1,36 @@
+<div class="fields nested-fields ui segment" style="margin:30px 0px;">
+	
+	<%= f.hidden_field :id %>
+	
+		<div class="four wide field">
+			<%= f.input :name %>
+		</div>
+
+	
+		<div class="three wide field">
+			<%= f.input :form_type do %>
+				<%= f.select :form_type, fanta_form_type_select.invert, {include_blank: '--'}, {class: 'ui fluid dropdown'} %>
+			<% end %>
+		</div>
+	
+		<div class="five wide field">
+				<%= f.input :content %>
+				<div class="ui blue pointing basic label">
+					セレクトボックス・ラジオボタン：入力例<br />
+					blue, red, green （カンマ区切り）<br />
+				</div>
+				
+		</div>
+	
+		<div class="two wide field">
+		  <%= f.input :status do %>
+				<%= f.select :status, fanta_statuses.invert, {include_blank: false}, {class: 'ui fluid dropdown'} %>
+		  <% end %>
+		</div>
+
+
+  <div class="two wide field">
+		<%= link_to_remove_association '削除', f, class: 'ui olive button' %>
+  </div>
+	
+</div>

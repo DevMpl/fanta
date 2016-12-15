@@ -1,0 +1,35 @@
+<% if @form_design.errors.any? %>
+<div class="ui negative message">
+  入力エラーがあります。確認してください。
+</div>
+<% end %>
+
+<div class="fields">
+	
+	<div class="three wide field">
+		<%= f.input :name %>
+	</div>
+
+	
+	<div class="three wide field">
+		<%= f.input :form_type do %>
+			<%= f.select :form_type, fanta_form_type_select.invert, {include_blank: false}, {class: 'ui fluid dropdown'} %>
+		<% end %>
+	</div>
+	
+	<div class="six wide field">
+		<%= f.input :content %>
+	</div>
+	
+	<div class="two wide field">
+	  <%= f.input :status do %>
+			<%= f.select :status, fanta_statuses.invert, {include_blank: false}, {class: 'ui fluid dropdown'} %>
+	  <% end %>
+	</div>
+
+</div>
+
+
+<div class="form-actions">
+	<%= f.button :submit %>
+</div>

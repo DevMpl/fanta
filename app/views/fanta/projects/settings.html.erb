@@ -1,0 +1,50 @@
+<script>
+  jQuery(function($){
+    $('#submit').on('click', function(){
+      $(this).closest('form').submit();
+    });
+    $('select').addClass('ui search dropdown').dropdown();
+		
+  });
+</script>
+
+<h1 class="ui header"><i class="tag icon"></i><div class="content">項目設計</div></h1>
+
+<div class="ui hidden divider"></div>
+
+<%= render :partial => 'sub_menu' %>
+
+<div class="ui header">「<%= @project.name %>」フォーム項目設計</div>
+
+<div class="ui blue">
+	
+
+<%= simple_form_for(@project, :url => regist_setting_project_form_design_path(@project.model)) do |f| %>
+	
+	<div id='detail-association-insertion-point' class="ui segments">
+
+			<%= f.fields_for :form_designs do |form_design| %>
+					<%= render 'form_design_fields', f: form_design %>
+			<% end %>
+		
+	</div>
+	
+	<div class="fields internal_btn">
+		<div class="sixteen wide field">
+			<%= link_to_add_association 'フォーム項目追加', f, :form_designs,
+			  class: 'ui large teal button',
+			  data: {
+			    association_insertion_node: '#detail-association-insertion-point',
+			    association_insertion_method: 'append' }
+			 %>
+	 	</div>
+	</div>
+	
+	<div class="ui center aligned basic segment">
+		<%= f.button :submit, class: 'ui huge primary button' %>
+	</div>
+	
+	
+<% end %>
+
+</div>

@@ -1,0 +1,13 @@
+<div>
+  <div class="ui compact menu">
+    <div class="item">
+      <%= link_to("記事一覧", items_path(category)) %>
+    </div>
+    <div class="item">
+      <%= link_to("記事 新規登録", new_item_path(category)) %>
+    </div>
+		<div class="item">
+			<%= link_to raw('表示順管理'), item_positions_path(category) %>
+    </div>
+  </div>
+</div>

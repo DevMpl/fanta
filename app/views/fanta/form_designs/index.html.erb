@@ -1,0 +1,49 @@
+<h2 class="ui header">
+  <i class="tag icon"></i>
+	項目設計
+</h2>
+
+<div class="ui breadcrumb">
+  <%= link_to raw('<i class="home icon"></i>'), form_designs_path, class: 'section' %>
+  <i class="right chevron icon divider"></i>
+  <div class="section">項目設計</div>
+</div>
+
+<div class="ui hidden divider"></div>
+<% if @form_designs.present?  %>
+
+  <table class="ui celled padded table">
+    <thead>
+      <tr>
+        <th class="center aligned" nowrap="nowrap">ID</th>
+        <th class="center aligned" nowrap="nowrap"><%= sprite_t_ja('tag.name') %></th>
+        <th class="center aligned" nowrap="nowrap"><%= sprite_t_ja('tag.taggings_count') %></th>
+        <th class="center aligned">記事一覧</th>
+				<th class="center aligned">編集</th>
+        <th class="center aligned" nowrap="nowrap">削除</th>
+      </tr>
+    </thead>
+    <tbody>
+		    <% @form_designs.each do |form_design| %>
+		      <tr>
+		        <td><%= form_design.name %></td>
+		        <td><%= form_design.type %></td>
+		        <td><%= form_design.form_type %></td>
+		        <td><%= form_design.slug %></td>
+		        <td><%= form_design.content %></td>
+		        <td><%= form_design.status %></td>
+		        <td><%= form_design.sequence %></td>
+		        <td><%= form_design.free %></td>
+		        <td><%= link_to 'Show', form_design %></td>
+		        <td><%= link_to 'Edit', edit_form_design_path(form_design) %></td>
+		        <td><%= link_to 'Destroy', form_design, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		      </tr>
+		    <% end %>
+    </tbody>
+  </table>
+
+<% else %>
+<div class="ui message info">
+  登録されている項目がありません
+</div>
+<% end %>

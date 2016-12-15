@@ -1,0 +1,20 @@
+
+<h1 class="ui header"><i class="tag icon"></i><div class="content">項目設計</div></h1>
+
+  <div class="ui breadcrumb">
+    <div class="section"><%= link_to raw('<i class="home icon"></i>'), form_designs_path, class: 'section' %></div>
+    <i class="right chevron icon divider"></i>
+    <%= link_to("項目設計", form_designs_path) %>
+    <i class="right chevron icon divider"></i>
+    <div class="section">タグ 新規作成</div>
+  </div>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui warning message">
+  <abbr title="required">*</abbr>は必須入力項目です。全てご記入いただかないと登録できませんのでご注意ください。
+</div>
+
+<%= simple_form_for(@form_design, :url => form_designs_path) do |f| %>
+	<%= render partial: 'form', locals: { f: f } %>
+<% end %>

@@ -1,0 +1,22 @@
+
+<h1 class="ui header"><i class="tag icon"></i><div class="content">項目設計</div></h1>
+
+<div class="ui hidden divider"></div>
+
+<%= render :partial => 'sub_menu' %>
+
+<div class="ui header">「<%= @project.name %>」フォーム項目プレビュー</div>
+
+<div class="ui blue">
+	
+<% if @form_designs %>
+	
+	<% @form_designs.each do |form_design| %>
+		
+		<%= form_design_input(form_design, {class: 'ui fluid dropdown'}) %>
+		
+	<% end %>
+	
+<% end %>
+
+</div>

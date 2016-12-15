@@ -1,0 +1,43 @@
+<script>
+  jQuery(function($){
+    $('.button').on('click', function(){
+      $(this).closest('form').submit();
+    });
+  });
+</script>
+	
+<div class="ui warning message">
+  <abbr title="required">*</abbr>は必須入力項目です。全てご記入いただかないと登録できませんのでご注意ください。
+</div>
+
+<%= f.error_notification %>
+
+<div class="ui blue segment">
+
+  <div class="ui header">基本情報</div>
+	
+	<div class="two fields">
+		<div class="field">
+				<%= f.input :name %>
+		</div>
+			
+		<div class="field">
+			
+			  <%= f.input :model do %>
+					<%= f.select :model, fanta_project_model_items.invert, {include_blank: false}, {class: 'ui fluid dropdown'} %>
+			  <% end %>
+			
+		</div>
+		
+	</div>
+	
+	<div class="field">
+			<%= f.input :content %>
+	</div>
+	
+
+</div>
+
+<div class="ui center aligned basic segment">
+  <%= link_to raw('<i class="save icon"></i>登録'), 'javascript:void(0);', class: 'ui huge primary button' %>
+</div>

@@ -1,0 +1,26 @@
+ja:
+  activerecord:
+    attributes:
+      image:
+        image_content_type: 画像は
+        image_file_size: 画像の
+      user:
+        nickname: ニックネーム
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード（再入力）
+        remember_me: 次回からパスワード入力を省く
+        sex: 性別
+      fanta/project:
+        name: 項目名
+        model: 設計モデル
+        content: 備考
+      fanta/form_design:
+        name: 項目名
+        type: タイプ
+        form_type: フォームタイプ
+        slug: スラッグ
+        content: コンテンツ
+        status: ステータス
+        sequence: 優先順位
+        free: 備考

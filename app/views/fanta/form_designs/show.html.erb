@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @form_design.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @form_design.type %>
+</p>
+
+<p>
+  <strong>Form type:</strong>
+  <%= @form_design.form_type %>
+</p>
+
+<p>
+  <strong>Slug:</strong>
+  <%= @form_design.slug %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @form_design.content %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @form_design.status %>
+</p>
+
+<p>
+  <strong>Sequence:</strong>
+  <%= @form_design.sequence %>
+</p>
+
+<p>
+  <strong>Free:</strong>
+  <%= @form_design.free %>
+</p>
+
+<%= link_to 'Edit', edit_form_design_path(@form_design) %> |
+<%= link_to 'Back', form_designs_path %>

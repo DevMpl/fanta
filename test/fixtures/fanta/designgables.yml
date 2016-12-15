@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  form_design_id: 1
+  designgable_id: 1
+  designgable_type: MyString
+  content: MyString
+
+two:
+  form_design_id: 1
+  designgable_id: 1
+  designgable_type: MyString
+  content: MyString
